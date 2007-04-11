@@ -1,0 +1,6 @@
+POLE 0.1 (released March 2004)
+
+        * initial release
+        * support for reading structured storages, even large ones
+        * no support yet for creating new storage or modifying existing
+          storage

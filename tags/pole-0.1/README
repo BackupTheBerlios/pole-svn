@@ -1,0 +1,98 @@
+POLE - portable library for structured storage
+
+POLE is a portable C++ library to create and read structured storage. With a
+structured storage, you can store files inside another file, or you can even
+create complex directory tree, if you want to. The structured storage created by
+POLE is compatible with Microsoft structured storage, also sometimes called as
+OLE Compound Document, which are used among others in Microsoft Office. However,
+POLE has the advantage that it's portable (i.e. you can read or write a
+structured storage in any supported platform), you don't need to rely on Windows
+library. 
+
+Using POLE
+==========
+
+The first step is to download the source code of POLE from
+http://developer.berlios.de/projects/pole/. Please always use the latest stable
+version.
+
+To compile POLE, you need a C++ compiler, with standard C++ library which
+supports STL (Standard Template Library). On Linux and other Unices, g++ will do
+the job.
+
+POLE is just a library, you have to integrate it as part of your
+application/project. Since it consists of one source file and one header file,
+it doesn't make much sense to compile POLE as separate library (either static or
+dynamic). Simply add these files to your project and you're done.
+
+The source tarball of POLE demonstrates the use of POLE to build poledump, a
+small utility to extract any stream inside a structured storage. If you use g++
+as the compiler, you can compile poledump using the following command:
+
+g++ -o poledump pole.cpp poledump.cpp
+
+You may use poledump like the example below:
+
+poledump budget.xls Workbook result.xls
+
+The above command will extract a stream named Workbook inside Excel document
+(budget.xls) and save it as result.xls. File result.xls will still be recognized
+as a valid workbook (in raw format). Launch Microsoft Excel, open this file, and
+convince yourself.
+
+Development
+===========
+
+Further development of POLE is still carried on. If you are brave enough, you
+may want to use the development version of POLE to check its latest progress.
+Use anonymous CVS (when asked for password, just press Enter) and checkout the
+source: 
+
+cvs -d:pserver:anonymous@cvs.pole.berlios.de:/cvsroot/pole login
+cvs -z3 -d:pserver:anonymous@cvs.pole.berlios.de:/cvsroot/pole co pole
+
+If you have question regarding the use of POLE, then simply send e-mail to
+<ariya@kde.org> I have limited spare time for further maintenance and
+development of POLE, but I will try my best to answer your mail. Bug reports,
+patches, donations, flamebaits are also welcomed.
+
+You are also suggested to subscribe to POLE mailing list
+<pole-users@lists.berlios.de> To subscribe or unsubscribe, go to
+http://lists.berlios.de/mailman/listinfo/pole-users. Archive is also available
+at http://lists.berlios.de/pipermail/pole-users. 
+
+Links
+=====
+
+There are other open-source projects which have the same goal as POLE.
+
+Libgsf (from Jody Golberg), written in plain C, is also able to read and write
+structured storage. If you're in Linux/Unix, please use libgsf instead of POLE
+because libgsf has more features, well developed, and mature already.
+
+Should you want to access structured storage with Java, Jakarta POI is your best
+choice. If you're interested in the internals of structured storage, you can
+refer to its excellent documentation.
+
+There is also libole2, but I believe this is already obsoleted by libgsf.
+
+Few projects still use cole from Roberto Arturo Tena Sanchez. You can check cole
+from xlhtml project.
+
+Laola, a small Perl utility, is among the first project which tries to reverse
+engineer the format of structured storage.
+
+Copyright and License
+=====================
+
+POLE Copyright (C) 2002-2004 Ariya Hidayat <ariya@kde.org> 
+
+POLE program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option) any
+later version. 
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
